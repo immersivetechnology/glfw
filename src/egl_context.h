@@ -205,7 +205,9 @@ GLFWbool _glfwInitEGL(void);
 void _glfwTerminateEGL(void);
 GLFWbool _glfwCreateContextEGL(_GLFWwindow* window,
                                const _GLFWctxconfig* ctxconfig,
-                               const _GLFWfbconfig* fbconfig);
+                               const _GLFWfbconfig* fbconfig, 
+                               void * sharedCtx
+                              );
 #if defined(_GLFW_X11)
 GLFWbool _glfwChooseVisualEGL(const _GLFWwndconfig* wndconfig,
                               const _GLFWctxconfig* ctxconfig,

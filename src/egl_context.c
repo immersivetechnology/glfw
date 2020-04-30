@@ -458,11 +458,13 @@ void _glfwTerminateEGL(void)
 //
 GLFWbool _glfwCreateContextEGL(_GLFWwindow* window,
                                const _GLFWctxconfig* ctxconfig,
-                               const _GLFWfbconfig* fbconfig)
+                               const _GLFWfbconfig* fbconfig, 
+                               void * sharedCtx
+                              )
 {
     EGLint attribs[40];
     EGLConfig config;
-    EGLContext share = NULL;
+    EGLContext share = sharedCtx;
     int index = 0;
 
     if (!_glfw.egl.display)
@@ -471,8 +473,8 @@ GLFWbool _glfwCreateContextEGL(_GLFWwindow* window,
         return GLFW_FALSE;
     }
 
-    if (ctxconfig->share)
-        share = ctxconfig->share->context.egl.handle;
+//    if (ctxconfig->share)
+//       share = ctxconfig->share->context.egl.handle;
 
     if (!chooseEGLConfig(ctxconfig, fbconfig, &config))
     {

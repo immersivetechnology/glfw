@@ -2001,7 +2001,7 @@ int _glfwPlatformCreateWindow(_GLFWwindow* window,
         }
         else if (ctxconfig->source == GLFW_EGL_CONTEXT_API)
         {
-            if (!_glfwCreateContextEGL(window, ctxconfig, fbconfig))
+            if (!_glfwCreateContextEGL(window, ctxconfig, fbconfig, sharedCtx))
                 return GLFW_FALSE;
         }
         else if (ctxconfig->source == GLFW_OSMESA_CONTEXT_API)
